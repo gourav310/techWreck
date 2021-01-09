@@ -1,0 +1,29 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Server Side for techwreck",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gourav310/techwreck.git"
+  },
+  "author": "Gourav",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gourav310/techwreck/issues"
+  },
+  "homepage": "https://github.com/gourav310/techwreck#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "mongoose": "^5.11.8",
+    "nodemon": "^2.0.6",
+    "session": "^0.1.0"
+  }
+}
