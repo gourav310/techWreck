@@ -15,7 +15,7 @@ export default function DashBoard(props){
     setFlag(!flag)
   }
     const getJobs=()=>{
-          fetch('http://localhost:9999/partnerJobs', { credentials: "include"})
+          fetch('https://techwreckback.herokuapp.com/partnerJobs', { credentials: "include"})
         .then(r => {
           if(r.ok) {
             return r.json();

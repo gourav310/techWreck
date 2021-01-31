@@ -11,7 +11,7 @@ export default function SignupForm(props) {
     const [password, setPassword] = useState("");
     const [fullname, setName] = useState("");
     const [pincode, setPincode] = useState("");
-    const [city, setCity] = useState("");
+    const [city, setCity] = useState("Bikaner");
     const [phone, setPhone] = useState("");
     const [SoftwareServices,setSoftware]=useState(["","","",""])
     const [HardwareServices,setHardware]=useState(["","",""])
@@ -41,7 +41,7 @@ export default function SignupForm(props) {
        
     }
     const doSignUp=()=>{
-        const url ="http://localhost:9999/partnerSignup";
+        const url ="https://techwreckback.herokuapp.com/partnerSignup";
         fetch(url,{
             method:"POST",
             body:JSON.stringify({username:username,password:password,fullName:fullname,city:city,pincode:pincode,phone:phone,SoftwareServices:SoftwareServices,HardwareServices:HardwareServices,Installation:Installation}),
@@ -88,7 +88,8 @@ export default function SignupForm(props) {
         </FormGroup>
         <FormGroup >
             <Label for="city" >City<span style={{ color: "red" }}> *</span></Label>
-            <Input type="text" name="city" value={city} onChange={(e) => setCity(e.target.value)} placeholder="Enter your city" required />
+            <Input type="text" name="city" value={city} disabled  required />
+            <div><span style={{ color: "red" }}> *</span>We are only in bikaner now</div>
         </FormGroup>
         <FormGroup >
             <Label for="phone" >Mobile<span style={{ color: "red" }}> *</span></Label>

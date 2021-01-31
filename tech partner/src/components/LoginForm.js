@@ -1,6 +1,6 @@
 import '../style/App.css';
 import { useState } from "react";
-import { ButtonToggle,Form,   FormGroup, Label, Input,Button } from 'reactstrap';
+import { ButtonToggle,   FormGroup, Label, Input,Button } from 'reactstrap';
 import {Link} from "react-router-dom";
 
 export default function LoginForm(props) {
@@ -8,7 +8,7 @@ export default function LoginForm(props) {
      const [password, setPassword] = useState("");
      const [error , setError] = useState("");
      const login=()=>{
-         const url="http://localhost:9999/partnerLogin"
+         const url="https://techwreckback.herokuapp.com/partnerLogin"
 //console.log('aaaaaa');
          fetch(url,{
             method:"POST",

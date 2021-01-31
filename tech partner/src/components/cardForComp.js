@@ -8,7 +8,7 @@ import {
 export default function CardC(props){
   const job = props.job;
   const acceptJob=()=>{
-    fetch(`http://localhost:9999/jobFullStatusUpdate/${job._id}`,{
+    fetch(`https://techwreckback.herokuapp.com/jobFullStatusUpdate/${job._id}`,{
       method:'PUT',
       body:JSON.stringify({partnerid:job.Partnerid}),
       headers:{'x-updatestatus':'Started','content-type':"application/JSON"},

@@ -17,7 +17,7 @@ function App() {
   const [fullname, setFull] = useState(null);
   const history = useHistory();
   const getUserName = () => {
-    return fetch('http://localhost:9999/partnerDetails', { credentials: "include"})
+    return fetch('https://techwreckback.herokuapp.com/partnerDetails', { credentials: "include"})
     .then(r => {
       if(r.ok) {
         return r.json();
@@ -44,11 +44,12 @@ function App() {
     getUserName();
   }, []);
   const logout = () => {
-    return fetch('http://localhost:9999/logout', { credentials: 'include'})
+    return fetch('https://techwreckback.herokuapp.com/logout', { credentials: 'include'})
     .then(r => {
       if(r.ok) {
         history.push('/')
         setUser(null);
+        setFull(null);
       }
     })
   };

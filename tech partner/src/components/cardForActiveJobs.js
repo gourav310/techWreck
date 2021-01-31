@@ -8,7 +8,7 @@ import {
 export default function CardA(props){
   const job = props.job;
   const acceptJob=()=>{
-    fetch(`http://localhost:9999/jobFullStatusUpdate/${job._id}`,{
+    fetch(`https://techwreckback.herokuapp.com/jobFullStatusUpdate/${job._id}`,{
       method:'PUT',
       body:JSON.stringify({partnerid:job.Partnerid}),
       headers:{'x-updatestatus':'Resolved','content-type':"application/JSON"},
@@ -16,7 +16,7 @@ export default function CardA(props){
     }).then((r)=>{if(r.ok){props.fun(); return {success:true}}else{ return r.json()}})
   }
   const denyJob=()=>{
-    fetch(`http://localhost:9999/jobFullStatusUpdate/${job._id}`,{
+    fetch(`https://techwreckback.herokuapp.com/jobFullStatusUpdate/${job._id}`,{
       method:'PUT',
       body:JSON.stringify({partnerid:job.Partnerid}),
       headers:{'x-updatestatus':'Service Denied','content-type':"application/JSON"},
