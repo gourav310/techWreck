@@ -6,7 +6,7 @@ const {jobModel}= require('../models/Jobs');
 const {connect}= require('./createDataBase');
 const {connections} = require('mongoose');
 const express = require('express');
-
+const PORT = process.env.PORT ||9999; 
 const {   SALT ,bcrypt,AuthMiddleware,SessionMiddlware,CorsMiddlware,cors} = require('./Middlewares')
 
 const app=express();
@@ -15,6 +15,7 @@ const app=express();
 app.use(express.urlencoded());
 app.use(express.json());
 app.use(CorsMiddlware());
+app.set('trust proxy',1);
 
 //connect to db
 connect();// this function is imported fro create database and is started here 
@@ -41,9 +42,9 @@ app.use(session({
     saveUninitialized:false,
     cookie: { maxAge: 1*60*60*1000,secure:true }
 }))
-// app.get('/farzi',(req,res)=>{
-//     console.log(req.session);
-//     res.end()
-// })
-app.listen(9999,()=>`App is listening on ${9999}`);
+app.get('/',(req,res)=>{
+   // console.log(req.session);
+    res.send({message:'working fine'})
+})
+app.listen(PORT,()=>`App is listening on ${9999}`);
 module.exports=app;

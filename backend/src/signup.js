@@ -27,7 +27,7 @@ router.get('/', async (req, res) => {
 })
 //signupfor users
 router.post('/userSignup', async (req, res) => {
-    const { fullName, username, password } = req.body;
+    const { fullName, username, password,city,pincode,phone } = req.body;
    // console.log(req.body)
     const userExist = await userModel.findOne({ UserName: username });
     // console.log(userExist)
@@ -39,11 +39,15 @@ router.post('/userSignup', async (req, res) => {
         const newUser = new userModel({
             UserName: username,
             Password: pass,
-            FullName: fullName
+            FullName: fullName,
+            City: city,
+            Email:username,
+            Pincode: pincode,
+            Phone: phone,
         });
         await newUser.save();
        // console.log(newUser._id);
-       // req.session.userId= newUser._id;
+        req.session.userId= newUser._id;
         res.send({ message: `User ${username} has been created` })
     }
 })
@@ -72,7 +76,7 @@ router.post('/partnerSignup', async (req, res) => {
             Installation:Installation
         });
         await newPartner.save();
-        req.session.userId= newPartner._id;
+        req.session.partnerId= newPartner._id;
        // console.log(req.session)
         res.send({ message: `Partner ${username} has been created` })
     }

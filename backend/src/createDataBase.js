@@ -5,7 +5,7 @@ const {jobModel}= require('../models/Jobs');
 
 
 
-const mongoURI = "mongodb://localhost:27017" + "/techWreck";
+const mongoURI = "mongodb+srv://gourav:Q6jxAV5xQN2Q8NT@cluster0.d4jr6.mongodb.net/techWreck?retryWrites=true&w=majority";
 const newuser= new userModel({
     UserName:"gourav",
     Password: "Khurana",
